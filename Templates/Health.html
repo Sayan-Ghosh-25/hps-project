@@ -119,6 +119,20 @@
           class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
       </div>
 
+      <script>
+        document.querySelector("form").addEventListener("submit", function (e) {
+        const selects = document.querySelectorAll("select");
+        for (let select of selects) {
+          if (select.value === "select") {
+            alert("⚠️ Please Make Sure All Fields Are Properly Filled!");
+            select.focus();
+            e.preventDefault();
+            return;
+            }
+          }
+        });
+      </script>
+
       <div class="pt-4">
         <button type="submit"
           class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-md transition duration-300">

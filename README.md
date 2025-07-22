@@ -13,7 +13,7 @@ This project is a **Flask-based web application** that predicts the **risk of de
 ## 📸 Preview
 
 ### 🧾 Input Form
-![Input Form](https://github.com/Sayan-Ghosh-25/hps-project/blob/main/assets/Preview.png?raw=true)
+![Input Form](https://github.com/Sayan-Ghosh-25/hps-project/blob/master/assets/Preview.png?raw=true)
 
 ---
 

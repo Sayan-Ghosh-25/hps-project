@@ -6,7 +6,7 @@ This project is a **Flask-based web application** that predicts the **risk of de
 
 ## 🚀 Live Demo
 
-> 🖥️ Check Here: https://health-predictor-app.onrender.com
+> 🖥️ Check Here: https://health-predictor-cxko.onrender.com
 
 ---
 

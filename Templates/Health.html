@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Project</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 via-white to-purple-100 min-h-screen flex items-center justify-center p-6">
+
+  <div class="bg-white w-full max-w-2xl p-8 rounded-2xl shadow-2xl">
+    <h1 class="text-3xl md:text-4xl font-bold text-center text-blue-600 mb-6">Health Risk Prediction</h1>
+
+    {% if result %}
+    <div class="flex justify-center mt-6">
+        <div class="px-6 py-4 rounded-xl shadow-lg text-white text-xl font-semibold
+            {% if 'High' in result %}
+                bg-red-500
+            {% elif 'Medium' in result %}
+                bg-yellow-400 text-black
+            {% else %}
+                bg-green-500
+            {% endif %}">
+            {{ result }}
+        </div>
+    </div>
+    {% endif %}
+
+    <form method="post" action="/predict" class="space-y-5">
+      <div>
+        <label for="age" class="block font-semibold text-gray-700">Age</label>
+        <input type="number" id="age" name="AGE" placeholder="Enter Your Age" min="5" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="sex" class="block font-semibold text-gray-700">Gender</label>
+        <select id="sex" name="SEX" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <option value="select">-- Select --</option>
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="anaemia" class="block font-semibold text-gray-700">Do You Have Anaemia?</label>
+        <select id="anaemia" name="AN" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <option value="select">-- Select --</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="creatinine_phosphokinase" class="block font-semibold text-gray-700">Creatinine Phosphokinase</label>
+        <input type="number" id="creatinine_phosphokinase" name="CP" placeholder="Enter The Value" min="10" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="diabetes" class="block font-semibold text-gray-700">Do You Have Diabetes?</label>
+        <select id="diabetes" name="DB" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <option value="select">-- Select --</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="ejection_fraction" class="block font-semibold text-gray-700">Ejection Fraction</label>
+        <input type="number" id="ejection_fraction" name="EF" placeholder="Enter The Value" min="40" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="blood_pressure" class="block font-semibold text-gray-700">Do You Have High Blood Pressure?</label>
+        <select id="blood_pressure" name="HBP" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <option value="select">-- Select --</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="platelets" class="block font-semibold text-gray-700">Platelets</label>
+        <input type="number" id="platelets" name="PLT" placeholder="Enter The Value" min="10000" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="serum_creatinine" class="block font-semibold text-gray-700">Serum Creatinine</label>
+        <input type="text" id="serum_creatinine" name="SC" placeholder="Enter The Value" min="0.5" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="serum_sodium" class="block font-semibold text-gray-700">Serum Sodium</label>
+        <input type="number" id="serum_sodium" name="SS" placeholder="Enter The Value" min="80" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="smoking" class="block font-semibold text-gray-700">Do You Smoke?</label>
+        <select id="smoking" name="SMK" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <option value="select">-- Select --</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="time" class="block font-semibold text-gray-700">Time Period</label>
+        <input type="number" id="time" name="T" placeholder="Enter The Time Under Observation" min="10" max="300" required
+          class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div class="pt-4">
+        <button type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-md transition duration-300">
+          Check Health Condition
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
